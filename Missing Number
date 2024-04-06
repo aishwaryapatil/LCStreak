@@ -1,0 +1,10 @@
+Gauss formula - formula to calculate sum of n numbers = n(n+1)/2   
+
+ public int missingNumber(int[] nums) {
+        int actualSum=0;
+       int expectedSum = nums.length*(nums.length+1)/2;
+       for(int num: nums){
+        actualSum+=num;
+       }
+       return expectedSum-actualSum;
+    }
