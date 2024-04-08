@@ -1,0 +1,36 @@
+Stuck with time limit exceeded error first , after extracting the swap function it passed.
+this problem is similar to reversing a string, TWO POINTER solution.
+
+
+class Solution {
+        boolean isVowel(char c) {
+        return c == 'a' || c == 'i' || c == 'e' || c == 'o' || c == 'u'
+            || c == 'A' || c == 'I' || c == 'E' || c == 'O' || c == 'U';
+    }
+        // Function to swap characters at index x and y
+    void swap(char[] chars, int x, int y) {
+        char temp = chars[x];
+        chars[x] = chars[y];
+        chars[y] = temp;
+    }
+    public String reverseVowels(String s) {
+
+      char [] tmp= s.toCharArray();
+       int i =0, j=tmp.length-1; 
+        while(i<j){
+       while(i<s.length() && !isVowel(tmp[i])){
+              i++;
+          }
+        while(j>=0 && !isVowel(tmp[j])){
+              j--;
+          }
+          if(i<j){
+           swap(tmp, i++, j--);
+ 
+          } 
+
+          
+        }
+        return new String(tmp);
+    }
+}
