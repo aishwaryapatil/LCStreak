@@ -1,0 +1,25 @@
+Merge strings alternately - one and two pointer solution. 
+New things learnt : use word1.charAt(i) instead of converting the string to array.
+Used String builder instead of StringBuffer- StringBuffer is synchronized which makes it thread safe.
+
+My solution below: 
+    public String mergeAlternately(String word1, String word2) {
+      if(word1.isBlank()){
+          return word2;
+      }
+      char [] tmp1 = word1.toCharArray();
+      char [] tmp2 = word2.toCharArray();
+      StringBuffer result = new StringBuffer();   
+        int j =0;   
+      for(int i = 0;i<tmp1.length;i++){
+          result.append(tmp1[i]);
+         if(j<tmp2.length){
+          result.append(tmp2[j]);
+            j++;
+         }
+      }
+      if(j<=tmp2.length){
+          result.append(word2.substring(j));
+      }  
+     return result.toString();   
+    }
