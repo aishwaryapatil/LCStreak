@@ -1,0 +1,16 @@
+This could be more clean- 
+
+class Solution {
+    public int largestAltitude(int[] gain) {
+        int prev=gain[0];
+        int max = gain[0]>0?gain[0]:0;
+        for(int i = 1;i<gain.length;i++){
+           if(prev+gain[i]>max) {
+                System.out.println(prev+gain[i]);
+               max=prev+gain[i];
+           }
+                prev=prev+gain[i];
+        }
+        return max;
+    }
+}
