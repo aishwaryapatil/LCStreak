@@ -1,0 +1,25 @@
+Used a hashmap and hashset, instead of checking the set contains just check the sizes of map and set.
+Question : The insertion complexity into a HashSet is often stated as O(1) on average. Here's why:
+
+A HashSet in Java is typically implemented using a hash table data structure. When you insert an element into a HashSet, the element's hash code is computed, and then the element is placed into the hash table based on this hash code.
+
+Hashing: Computing the hash code of an object and identifying its position in the hash table typically takes constant time, regardless of the size of the hash table or the number of elements already present in it. This is because the hash code is a fixed-size integer value, and the hash table's size is typically proportional to the number of elements it contains.
+
+Bucket Collision Resolution: In some cases, two different elements may have the same hash code, leading to a collision. To handle collisions, most HashSet implementations use a technique called chaining, where each hash table bucket holds a linked list of elements with the same hash code. When a collision occurs, the new element is simply added to the linked list for that bucket.
+
+Because the average length of the linked lists is typically small (assuming a good hash function and appropriate resizing strategy), the time complexity of insertion, on average, remains O(1). However, in the worst-case scenario, where all elements hash to the same bucket, the time complexity of insertion becomes O(n), where n is the number of elements in the HashSet.
+
+It's important to note that while the average-case time complexity of insertion into a HashSet is O(1), the worst-case time complexity is O(n). However, in practice, HashSet provides efficient insertion, deletion, and lookup operations for most use cases, making it a popular choice for storing unique elements.
+
+class Solution {
+    public boolean uniqueOccurrences(int[] arr) {
+       HashMap<Integer,Integer> map = new HashMap<>();
+        for(int ar:arr){
+            map.put(ar,map.getOrDefault(ar,0)+1);
+        }
+HashSet<Integer> set = new HashSet<>(map.values());
+
+return set.size() == map.size();
+        
+    }
+}
