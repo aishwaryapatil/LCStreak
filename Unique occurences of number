@@ -1,4 +1,6 @@
 Solution 1: get the frequencies and then sort this array to check if any two consecutive numbers are same.
+for (int num : arr) { freq[num + K]++; }: This line iterates over each element num in the input array arr. For each element num, it increments the value at index num + K in the freq array. By adding K to the element, we ensure that negative indices are avoided, and all indices remain non-negative. This effectively counts the occurrences of each unique element in the input array arr and stores the frequencies in the freq array.
+
 Solution 2:Used a hashmap and hashset, instead of checking the set contains just check the sizes of map and set.
 Question : The insertion complexity into a HashSet is often stated as O(1) on average. Here's why:
 
