@@ -1,0 +1,27 @@
+Grey Area: missed case !result1.contains(num) instead of just 3 my result has 3,3. 
+Time : O(N+M) Space: O(max(N,M))
+class Solution {
+    public List<Integer> traverseTheFirstArray(int[] nums1, int[] nums2) {
+        List<Integer> result1= new ArrayList<>();
+        HashSet<Integer> set = new HashSet<>();
+        for(int num:nums1){
+            set.add(num);
+        }
+        for(int num:nums2){
+            if(!set.contains(num) && !result1.contains(num)){
+              result1.add(num);  
+            }
+        }
+        return result1;
+    }
+
+    public List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
+        List<List<Integer>> result= new ArrayList<>();
+        List<Integer> list1 = traverseTheFirstArray(nums1,nums2);
+        List<Integer> list2 = traverseTheFirstArray(nums2,nums1);
+        result.add(list2);
+        result.add(list1);
+
+        return result;    
+    }
+}
