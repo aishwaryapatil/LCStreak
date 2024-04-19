@@ -1,0 +1,18 @@
+Only 12 testcases passed , need to tweak below solution to maintain the order for check 
+
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+        char[] sub = s.toCharArray();
+        char[] tstring = t.toCharArray();
+        int count =0;
+      for(int i = 0;i<sub.length;i++){
+        for(int j = 0;j<tstring.length;j++){
+            if(sub[i]==tstring[j]){
+                count++;
+                break;    
+            }    
+        }
+      } 
+      return count==sub.length?true:false; 
+    }
+}
