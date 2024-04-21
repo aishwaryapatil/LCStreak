@@ -1,4 +1,5 @@
 Bit Manipulation problem but solved it using hashtable , 
+Bit Manipulation solution: XOR all the bits should return the unique number.
 Mathematical calculation: 2* (a+b+c)- (a+b+b+c+a+a) = c
 new solution i discovered was using Array list just keep adding values to it and it already exists remove it from the list.
 
